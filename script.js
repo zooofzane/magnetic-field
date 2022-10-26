@@ -29,7 +29,7 @@ function draw() {
 
     // console.log(p)
     p.style('align', 'top');
-    splitstr[0].style('left', 100)
+    // splitstr[0].style('left', 100)
     let pfontweight = constrain(map(mouseX, 0, width, -45, 45), -45, 45);
     for (let i = 0; i < splitstr.length; i++) {
         p.style('font-variation-settings', "'slnt' " + pfontweight);
