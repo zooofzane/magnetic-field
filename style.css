@@ -1,0 +1,33 @@
+/* @font-face {
+    font-family: 'GTPLANAR';
+    src: url('GT-Planar-Regular-Trial.woff2') format("woff2");
+    /*   src: url('GT-Planar.otf'); */
+
+
+/* font-weight: 1 999; */
+
+
+/* } */
+
+@font-face {
+    font-family: 'GTPlanar';
+    src: url('GT-Planar-Trial-VF.woff2') format('woff2');
+    font-weight: 120;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    display: block;
+}
+
+p {
+    color: #ffffff;
+    text-align: center;
+    font-family: 'GTPlanar';
+    font-weight: 999;
+}
