@@ -25,9 +25,16 @@ canvas {
     display: block;
 }
 
-p {
+div,
+span {
     color: #ffffff;
+    margin: auto;
+    width: 50%;
+    /* position: absolute; */
+    vertical-align: middle;
     text-align: center;
     font-family: 'GTPlanar';
     font-weight: 999;
+    -webkit-font-smoothing: antialiased;
+    /* font-size: 299; */
 }
