@@ -1,51 +1,53 @@
 let strtest, splitstr, testMFVF
 let p
-    // let textarray = []
 let MFspan = [];
 
+let posX = window.innerWidth / 2;
+let posY = window.innerHeight / 8;
 
-function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
-    frameRate(24);
-    let posX = width / 2;
-    let posY = height / 8;
-
-    p = createDiv()
+function initialize() {
+    p = document.getElementById("mftest");
     let fontsize = 150;
 
+    // strtest = 'Magnetic Field';
     strtest = 'MAGNETIC FIELD';
     splitstr = strtest.split('');
 
-    background("#000000");
-
     for (let i = 0; i < splitstr.length; i++) {
-        let ic = createSpan(splitstr[i])
+        // let ic = createSpan(splitstr[i])
+        let ic = document.createElement("span")
+        ic.innerHTML = splitstr[i];
         MFspan.push(ic)
-        console.log(ic.position)
-        ic.parent(p);
-        console.log(ic.position)
+        p.append(ic);
     }
-    p.style('font-size', fontsize + 'px');
-    p.center();
 }
+initialize()
 
-function draw() {
-    let diff = mouseX - width / 2;
+// const body = document.querySelector("body");
 
+document.addEventListener('mousemove', (e) => {
+
+    let x = e.clientX;
+    let y = e.clientY;
+    // translate(x, y);
     for (let i = 0; i < splitstr.length; i++) {
-        let pfontslnt = constrain(map(diff / i, -200, 200, -45, 45), -45, 45);
-        let pfontweight = constrain(map(diff, -200, 200, 0, 45), 0, 245);
-        // console.log(MFspan[i].position);
+        let testleft = (getOffset(MFspan[1]).left - x) / window.innerWidth * 45;
+        // let testleft = Math.abs(getOffset(MFspan[1]).left - x);
+        // console.log(testleft)
+        // MFspan[i].style.fontvariationsettings = "wght" + testleft;
+        MFspan[i].style.setProperty("--font-variation-settings", "'slnt'" + testleft);
+        // MFspan[i].style.fontVariationSettings = "slnt" + testleft;
 
-        MFspan[i].style('font-variation-settings', "'slnt' " + pfontslnt);
-        MFspan[i].style('font-size', pfontweight + 100 + "px");
-        MFspan[i].style('font-weight', pfontweight + "pt");
-
-        // MFspan[i].style('font-weight', pfontweight + "pt");
     }
-}
+    // console.log(x)
+});
 
+// window.addEventListener("resize", initialize(), true);
 
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY
+    };
 }
