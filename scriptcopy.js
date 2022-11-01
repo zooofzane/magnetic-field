@@ -9,7 +9,7 @@ function setup() {
     let posY = height / 8;
 
     p = createDiv()
-    let fontsize = 150;
+    let fontsize = 120;
 
     strtest = 'MAGNETIC FIELD';
     splitstr = strtest.split('');
@@ -23,7 +23,7 @@ function setup() {
 }
 
 function draw() {
-    background("#000000");
+    // background("#000000");
 
     for (let i = 0; i < splitstr.length; i++) {
         // console.log(MFspan[i].style);

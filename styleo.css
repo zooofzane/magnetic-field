@@ -15,26 +15,33 @@
     /* font-weight: 120; */
 }
 
+:root {
+    --red: #ff6f69;
+    --weight: 900;
+    --slant: 0;
+}
+
 html,
 body {
     margin: 0;
     padding: 0;
+    background-color: black;
 }
 
 canvas {
     display: block;
 }
 
-div,
 span {
     color: #ffffff;
-    margin: auto;
-    width: 50%;
+    margin: 0;
     /* position: absolute; */
     vertical-align: middle;
     text-align: center;
     font-family: 'GTPlanar';
-    font-weight: 999;
-    -webkit-font-smoothing: antialiased;
-    /* font-size: 299; */
+    font-weight: 10;
+    font-weight: 10;
+    /* -webkit-font-smoothing: antialiased; */
+    font-size: 599;
+    font-variation-settings: 'wght' var(--weight), 'slnt' var(--slant);
 }

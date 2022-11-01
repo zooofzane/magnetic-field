@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
+<html id="root">
 
 <head>
     <meta charset="utf-8">
@@ -12,6 +12,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="dat.gui.js"></script>
     <!-- <link rel="stylesheet" href="styleo.css"> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script> -->
@@ -27,7 +29,21 @@
     <script src="script.js" async defer></script>
     <!-- <script src="scriptcopy.js" async defer></script> -->
     <!-- <span id="ppp"></span> -->
-    <p id="mftest"></p>
+    <div id="editpanel">
+        <!-- <label>Type</label>
+        <br>
+        <textarea id="type" style="width: 107px; height: 128px;">java</textarea>
+        <br>
+        <label>Area</label><br>
+        <input id="myRange" type="range" min="1" max="100" value="50" class="slider" step="1"> -->
+        <label>Type</label><br>
+        <textarea id="type" style="width: 107px; height: 128px;">java</textarea>
+
+        <label>Area</label>
+        <input id="myRange" type="range" min="1" max="100" value="50" class="slider" step="1">
+    </div>
+    <div id="space"></div>
+    <div id="mftest"></div>
 </body>
 
 </html>

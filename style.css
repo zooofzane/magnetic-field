@@ -9,6 +9,14 @@
 
 /* } */
 
+:root {
+    --red: #ff6f69;
+    --weight: 900;
+    --slant: 0;
+    --cursorx: 0;
+    --cursory: 0;
+}
+
 @font-face {
     font-family: 'GTPlanar';
     src: url('GT-Planar-Trial-VF.ttf') format('truetype');
@@ -20,21 +28,54 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
-}
-
-canvas {
-    display: block;
-}
-
-p,
-span {
-    color: #ffffff;
-    margin: auto;
-    /* position: absolute; */
-    vertical-align: middle;
-    text-align: center;
     font-family: 'GTPlanar';
-    font-weight: 999;
+    color: #ffffff;
+    /* cursor: none; */
+}
+
+
+/* canvas {
+    display: block;
+} */
+
+#mftest {
+    /* padding-left: 50% */
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    font-family: 'GTPlanar';
     -webkit-font-smoothing: antialiased;
-    font-size: 299;
+    font-size: 109px;
+    color: #ffffff;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+span {
+    /* font-weight: ; */
+    font-variation-settings: 'wght' var(--weight), 'slnt' var(--slant);
+    /* font-variation-settings: 'wght' var(--weight); */
+}
+
+#cursor {
+    position: absolute;
+    left: var(--cursorx);
+    top: var(--cursory);
+    /* padding-left: 100px;
+    padding-top: 60px; */
+    font-size: 69px;
+    /* color: #ffffff; */
+}
+
+#editpanel {
+    position: absolute;
+    margin: auto;
+    top: 2%;
+    font-size: 19px;
+}
+
+#space {
+    height: 200px;
 }
