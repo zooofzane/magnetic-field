@@ -27,50 +27,27 @@ function initialize() {
     cursor.setAttribute("id", "cursor");
     cursor.innerHTML = "🧲";
 
-    // console.log(p.children[0])
+    // console.log
+    // console.log(p.children[1])
+    // p.children[1].remove()
+    // console.log(p.children[1])
 }
 
 initialize()
 
-// function changetext(e) {
-//     let splitstr = e.split('');
-//     // console.log(splitstr)
-//     // MFspan = [];
-//     for (let i = 0; i < splitstr.length; i++) {
-//         //     // let ic = createSpan(splitstr[i])
-//         //     // let ic = document.createElement("span")
-//         //     // ic.innerHTML = splitstr[i];
-//         // MFspan.push(splitstr[i]);
-//         //     // p.append(ic);
-//     }
-// }
-
-// function update() {
-//     strtest = document.getElementById("textarea").value;
-//     splitstr = strtest.split('');
-//     MFspan.slice(0, MFspan.length);
-//     let texts = document.querySelectorAll('.ics')
-//     texts.forEach(box => {
-//         box.remove();
-//     });
-//     for (let i = 0; i < splitstr.length; i++) {
-//         // let ic = createSpan(splitstr[i])
-//         let ic = document.createElement("span")
-//         ic.innerHTML = splitstr[i];
-//         MFspan.push(ic)
-//         p.append(ic);
-//     }
-// }
-
 let splitstrnum;
-
+let ie = 12;
 const tick = () => {
 
     splitstrnum = splitstr.length;
+    console.log('1 previou s l : ' + splitstrnum)
 
     strtest = document.getElementById("textarea").value;
     splitstr = strtest.split('');
+    console.log('2 s l : ' + splitstr.length)
+
     if (splitstrnum != splitstr.length) {
+        console.log('3 previou s l : ' + splitstrnum)
         if (splitstrnum < splitstr.length) {
             let ic = document.createElement("span")
             MFspan.push(ic)
@@ -78,15 +55,26 @@ const tick = () => {
         }
         if (splitstrnum > splitstr.length) {
             let num = splitstrnum - 1;
-            if (num > splitstr.length) {
-                p.children[2].remove;
+            // console.log(p)
+            // console.log('num :' + num)
+            // console.log('s l : ' + splitstr.length)
+            while (num > splitstr.length) {
+                p.children[num].remove();
                 num--;
+                // console.log(p)
+                // console.log('num :' + num)
+                // console.log('s l : ' + splitstr.length)
             }
         }
     }
-    // console.log(splitstr.length)
-    splitstrnum = splitstr.length - splitstrnum;
-    splitstrnum
+    console.log('4 previou s l : ' + splitstrnum)
+        // if (ie > 9) {
+        //     ie--;
+        //     console.log(ie)
+        // }
+        // console.log(splitstr.length)
+        // splitstrnum = splitstr.length - splitstrnum;
+        // splitstrnum
     for (let i = 0; i < splitstr.length; i++) {
         // p.childNode = splitstr.length
         MFspan[i].innerHTML = splitstr[i]
