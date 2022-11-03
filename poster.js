@@ -2,7 +2,11 @@ console.log('poster')
     // let time = 1;
 let tsime = 54;
 
-
+let modecheck = document.getElementById("mode");
+let p1 = document.getElementById("left");
+let p2 = document.getElementById("right");
+let p3 = document.getElementById("top");
+let p4 = document.getElementById("bottom")
 // noise.seed(Math.random());
 
 const tickposter = () => {
@@ -11,6 +15,9 @@ const tickposter = () => {
 
         var value = perlin.get(60, time);
 
+        if(modecheck.checked){
+
+        }
 
 
 
