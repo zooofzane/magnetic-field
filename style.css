@@ -15,6 +15,10 @@
     --slant: 0;
     --cursorx: 0;
     --cursory: 0;
+    --leftposition: 330px;
+    --topposition: 160px;
+    --bottompostion: 900px;
+    --rightposition: 1040px;
 }
 
 @font-face {
@@ -33,28 +37,51 @@ body {
     /* cursor: none; */
 }
 
-
-/* canvas {
-    display: block;
-} */
-
 #mftest {
-    /* padding-left: 50% */
     position: absolute;
     margin: auto;
     width: 90%;
-    font-family: 'GTPlanar';
     -webkit-font-smoothing: antialiased;
     font-size: 109px;
     color: #ffffff;
     text-align: center;
     top: 50%;
-    /* left: 50%; */
     transform: translate(0%, -50%);
-    /* top: 50%; */
-    /* left: 50%; */
-    /* -ms-transform: translate(-50%, -50%); */
-    /* transform: translate(-50%, -50%); */
+}
+
+.posterP {
+    position: absolute;
+    margin: auto;
+    font-size: 89px;
+}
+
+
+/* align-tracks: start; */
+
+#posterleft {
+    left: 290px;
+    top: 190px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+#posterright {
+    /* width: 100%; */
+    left: var(--rightposition);
+    top: 135px;
+    /* transform: rotate(-90deg);*/
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+#postertop {
+    left: var(--leftposition);
+    top: 100px;
+}
+
+#posterbottom {
+    left: calc(var(--leftposition) + 80px);
+    top: 850px;
 }
 
 span {
@@ -74,7 +101,7 @@ span {
 }
 
 #editpanel {
-    position: absolute;
+    /* position: absolute; */
     margin: auto;
     top: 2%;
     font-size: 19px;

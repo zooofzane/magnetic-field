@@ -23,7 +23,7 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif] -->
 
-    <script src="script.js" async defer></script>
+    <!-- <script src="script.js" async defer></script> -->
     <script src="poster.js" async defer></script>
 
     <div id="editpanel">
@@ -33,6 +33,9 @@
 
         <label>WIP   TURN THE FIELD ON/OFF</label>
         <input id="swithcer" type="checkbox">
+        <br><br>
+        <label>WIP   Mode Poster/Headline</label>
+        <input id="mode" type="checkbox">
         <br><br>
         <label>Type</label><br>
         <textarea id="textarea" style="width: 127px; height: 128px;" placeholder="MAGNETIC FIELD">MAGNETIC FIELD</textarea>
@@ -48,9 +51,7 @@
         <br><br>
         <label>Animation</label>
         <input id="noisemove" type="checkbox">
-        <br><br>
-        <label>WIP   Mode Poster/Headline</label>
-        <input id="mode" type="checkbox">
+
 
 
         <br><br>
@@ -60,11 +61,13 @@
     </div>
     <div id="space"></div>
     <p id="mftest"></p>
+    <div id="postercanvas">
+        <p class="posterP" id="posterleft"></p>
+        <p class="posterP" id="posterright"></p>
+        <p class="posterP" id="postertop"></p>
+        <p class="posterP" id="posterbottom"></p>
+    </div>
 
-    <p id="left"></p>
-    <p id="right"></p>
-    <p id="top"></p>
-    <p id="bottom"></p>
 </body>
 
 </html>

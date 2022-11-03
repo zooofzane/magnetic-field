@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html id="root">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/perlin-noise-3d"></script>
+    <script src="html2canvas.js"></script>
+
+</head>
+
+<body>
+    <!-- [if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif] -->
+
+    <script src="headlinescript.js" async defer></script>
+    <!-- <script src="poster.js" async defer></script> -->
+
+    <div id="editpanel">
+        <label>note: <br>
+            1.might be broken down sometimes, just refresh the page to restart<br>2.delete the characters in typebox one by one</label>
+        <br><br>
+
+        <label>WIP   TURN THE FIELD ON/OFF</label>
+        <input id="swithcer" type="checkbox">
+        <br><br>
+        <label>WIP   Mode Poster/Headline</label>
+        <input id="mode" type="checkbox">
+        <br><br>
+        <label>Type</label><br>
+        <textarea id="textarea" style="width: 127px; height: 128px;" placeholder="MAGNETIC FIELD">MAGNETIC FIELD</textarea>
+        <br><br>
+        <label>WIP   Area</label><br>
+        <input id="myAreaRange" type="range" min="1" max="1000" value="500" class="slider" step="1">
+        <br><br>
+        <label>Strength</label><br>
+        <input id="myStrengthRange" type="range" min="0" max="2" value="1" class="slider" step="0.01" list="tickmarks">
+        <datalist id="tickmarks">
+            <option value="1"></option>
+        </datalist>
+        <br><br>
+        <label>Animation</label>
+        <input id="noisemove" type="checkbox">
+
+
+
+        <br><br>
+        <label>WIP   Save Image</label><br>
+        <input type="button" value="click here or press S">
+
+    </div>
+    <div id="space"></div>
+    <p id="mftest"></p>
+
+    <p class="posterP" id="left"></p>
+    <p class="posterP" id="right"></p>
+    <p class="posterP" id="top"></p>
+    <p class="posterP" id="bottom"></p>
+</body>
+
+</html>
