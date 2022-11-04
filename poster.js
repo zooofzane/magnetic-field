@@ -1,6 +1,7 @@
 // console.log('poster')
 let postersime = 0;
 let noisemovement;
+let Area;
 
 let modecheck = document.getElementById("mode");
 let p1 = document.getElementById("posterleft");
@@ -56,7 +57,9 @@ const tickposter = () => {
     postersime += 0.01
     noisemovement = document.getElementById("noisemove");
 
-    maxarea = document.getElementById("myAreaRange").value;
+    Area = document.getElementById("myAreaRange").value;
+
+    maxarea = 20;
     // if (modecheck.checked) {
     poster()
         // }
@@ -82,6 +85,7 @@ function poster() {
 
         let directoffsite = noise.get(posx * 0.001, posy * 0.04, postersime) * 190 - 75;
         let dist = getDistance(posx, posy, x, y);
+        dist = clamp(dist, 0, Area);
         let offsetnoise = 0;
         offsetnoise = clamp(offsetnoise, 0, 1);
         offsetnoise = map(dist, 0, maxarea, 0, 4);
@@ -175,14 +179,15 @@ function poster() {
         let offsetnoise = 0;
         offsetnoise = clamp(offsetnoise, 0, 1);
         offsetnoise = map(dist, 0, maxarea, 0, 4);
+        effectarea = map(dist, 0, Area, 1, 0);
         let strength = document.getElementById("myStrengthRange").value;
 
         if (noisemovement.checked) {
             p4.childNodes[i].style.setProperty("--slant", testleft * strength + directoffsite * offsetnoise);
             p4.childNodes[i].style.setProperty("--weight", testw);
         } else {
-            p4.childNodes[i].style.setProperty("--slant", testleft * strength);
-            p4.childNodes[i].style.setProperty("--weight", testw);
+            p4.childNodes[i].style.setProperty("--slant", testleft * strength * effectarea);
+            p4.childNodes[i].style.setProperty("--weight", testw * effectarea);
         }
     }
 }
