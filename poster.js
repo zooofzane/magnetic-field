@@ -38,14 +38,14 @@ function posterinitial() {
     for (let i = 0; i < p3spanarray.length; i++) {
         let ic = document.createElement("span");
         ic.classList.add("p1_ics");
-        ic.innerHTML = p1spanarray[i];
+        ic.innerHTML = p3spanarray[i];
         // MFspan.push(ic);
         p3.append(ic);
     }
     for (let i = 0; i < p3spanarray.length; i++) {
         let ic = document.createElement("span");
         ic.classList.add("p1_ics");
-        ic.innerHTML = p1spanarray[i];
+        ic.innerHTML = p3spanarray[i];
         // MFspan.push(ic);
         p4.append(ic);
     }
