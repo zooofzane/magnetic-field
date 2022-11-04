@@ -15,10 +15,11 @@
     --slant: 0;
     --cursorx: 0;
     --cursory: 0;
-    --leftposition: 330px;
+    --leftposition: 370px;
     --topposition: 160px;
     --bottompostion: 900px;
-    --rightposition: 1040px;
+    --rightposition: 1270px;
+    --leftrightfontsize: 53px;
 }
 
 @font-face {
@@ -59,19 +60,21 @@ body {
 /* align-tracks: start; */
 
 #posterleft {
-    left: 290px;
+    left: 330px;
     top: 190px;
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    font-size: var(--leftrightfontsize);
 }
 
 #posterright {
     /* width: 100%; */
     left: var(--rightposition);
-    top: 135px;
+    top: 190px;
     /* transform: rotate(-90deg);*/
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    font-size: var(--leftrightfontsize);
 }
 
 #postertop {
@@ -80,8 +83,8 @@ body {
 }
 
 #posterbottom {
-    left: calc(var(--leftposition) + 80px);
-    top: 850px;
+    left: var(--leftposition);
+    top: 600px;
 }
 
 span {
@@ -114,4 +117,10 @@ span {
 #tickmarks,
 myStrengthRange {
     color: #ffffff;
+}
+
+img {
+    position: absolute;
+    left: 330px;
+    top: 100px;
 }
