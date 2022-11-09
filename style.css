@@ -1,22 +1,11 @@
-/* @font-face {
-    font-family: 'GTPLANAR';
-    src: url('GT-Planar-Regular-Trial.woff2') format("woff2");
-    /*   src: url('GT-Planar.otf'); */
-
-
-/* font-weight: 1 999; */
-
-
-/* } */
-
 :root {
     --red: #ff6f69;
     --weight: 900;
     --slant: 0;
     --cursorx: 0;
     --cursory: 0;
-    --leftposition: 370px;
-    --topposition: 160px;
+    --leftposition: 15px;
+    --topposition: 10px;
     --bottompostion: 900px;
     --rightposition: 1350px;
     --leftrightfontsize: 53px;
@@ -25,7 +14,6 @@
 @font-face {
     font-family: 'GTPlanar';
     src: url('GT-Planar-Trial-VF.ttf') format('truetype');
-    /* font-weight: 120; */
 }
 
 html,
@@ -38,40 +26,31 @@ body {
     /* cursor: none; */
 }
 
-#mftest {
+#postercanvas {
     position: absolute;
-    margin: auto;
-    width: 90%;
-    -webkit-font-smoothing: antialiased;
-    font-size: 109px;
-    color: #ffffff;
-    text-align: center;
-    top: 50%;
-    transform: translate(0%, -50%);
+    left: 330px;
+    top: 100px;
+    width: 1100px;
+    height: 607.5px;
 }
 
 .posterP {
     position: absolute;
     margin: auto;
-    font-size: 89px;
+    font-size: 130px;
+    text-align: center;
 }
 
-
-/* align-tracks: start; */
-
 #posterleft {
-    left: 330px;
-    top: 190px;
+    top: 90px;
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-size: var(--leftrightfontsize);
 }
 
 #posterright {
-    /* width: 100%; */
-    left: var(--rightposition);
-    top: 190px;
-    /* transform: rotate(-90deg);*/
+    left: 1020px;
+    top: 90px;
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-size: var(--leftrightfontsize);
@@ -79,32 +58,26 @@ body {
 
 #postertop {
     left: var(--leftposition);
-    top: 100px;
+    top: -20px;
 }
 
 #posterbottom {
     left: var(--leftposition);
-    top: 600px;
+    top: 470px;
 }
 
 span {
-    /* font-weight: ; */
     font-variation-settings: 'wght' var(--weight), 'slnt' var(--slant);
-    /* font-variation-settings: 'wght' var(--weight); */
 }
 
 #cursor {
     position: absolute;
     left: var(--cursorx);
     top: var(--cursory);
-    /* padding-left: 100px;
-    padding-top: 60px; */
     font-size: 69px;
-    /* color: #ffffff; */
 }
 
 #editpanel {
-    /* position: absolute; */
     margin: auto;
     top: 2%;
     font-size: 19px;
@@ -123,4 +96,15 @@ img {
     position: absolute;
     left: 330px;
     top: 100px;
+}
+
+#space {
+    position: absolute;
+    left: 330px;
+    top: 100px;
+    width: 1080px;
+    height: 607.5px;
+    border-style: solid;
+    border-color: white;
+    border-width: 0.2px;
 }

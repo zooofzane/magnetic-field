@@ -28,7 +28,7 @@
 
     <div id="editpanel">
         <label>note: <br>
-            1.might be broken down sometimes, just refresh the page to restart<br>2.delete the characters in typebox one by one</label>
+            1.might be broken down sometimes, just refresh the page to restart</label>
         <br><br>
 
         <label>WIP   TURN THE FIELD ON/OFF</label>
@@ -37,14 +37,17 @@
         <label>WIP   Mode Poster/Headline</label>
         <input id="mode" type="checkbox">
         <br><br>
+        <label>background image ON/OFF</label>
+        <input id="bmgcheck" type="checkbox">
+        <!-- <br><br>
         <label>Type</label><br>
-        <textarea id="textarea" style="width: 127px; height: 128px;" placeholder="MAGNETIC FIELD">MAGNETIC FIELD</textarea>
+        <textarea id="textarea" style="width: 127px; height: 128px;" placeholder="MAGNETIC FIELD">MAGNETIC FIELD</textarea> -->
         <br><br>
         <label>WIP   Area</label><br>
-        <input id="myAreaRange" type="range" min="1" max="1000" value="500" class="slider" step="1">
+        <input id="myAreaRange" type="range" min="60" max="500" value="250" class="slider" step="1">
         <br><br>
         <label>Strength</label><br>
-        <input id="myStrengthRange" type="range" min="0" max="2" value="1" class="slider" step="0.01" list="tickmarks">
+        <input id="myStrengthRange" type="range" min="0" max="999" value="499" class="slider" step="1" list="tickmarks">
         <datalist id="tickmarks">
             <option value="1"></option>
         </datalist>
@@ -56,9 +59,9 @@
 
         <br><br>
         <label>WIP   Save Image</label><br>
-        <input type="button" value="click here or press S">
+        <input type="button" value="click here or press s">
 
-        <!-- <img src="mockup.png" alt="magneticField" width="1080"> -->
+        <img src="mockup.png" alt="magneticField" width="1080" id="bgimg">
 
     </div>
     <div id="space"></div>
