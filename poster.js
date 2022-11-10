@@ -1,10 +1,11 @@
 // console.log('poster')
 let postersime = 0;
-let noisemovement;
+let noisemovement, fieldonoff;
 let backgroundimg;
 let Area;
 let strength;
 let s;
+let volume;
 
 let modecheck = document.getElementById("mode");
 let p1 = document.getElementById("posterleft");
@@ -63,26 +64,20 @@ posterinitial()
 const tickposter = () => {
 
     postersime += 0.01
+
     noisemovement = document.getElementById("noisemove");
     backgroundimg = document.getElementById("bmgcheck");
+    fieldonoff = document.getElementById("swithcer");
 
     strength = document.getElementById("myStrengthRange").value;
     Area = document.getElementById("myAreaRange").value;
+    volume = document.getElementById("myVolumeRange").value;
+
+
 
     s = map(strength, 0, 1000, 0, Area);
 
     maxarea = 20;
-    // if (modecheck.checked) {
-    poster()
-        // }
-    window.requestAnimationFrame(tickposter)
-}
-
-tickposter()
-
-function poster() {
-    // / PPPPPP1111111 left
-
 
     if (backgroundimg.checked) {
         bgimg.style.visibility = 'visible';
@@ -90,20 +85,46 @@ function poster() {
         bgimg.style.visibility = 'hidden';
     }
 
-    // p1str = document.getElementById("P1").value;
-    for (let i = 0; i < p1spanarray.length; i++) {
-        // p1.childNodes[i].innerHTML = splitstr[i]
 
+    var r = document.querySelector(':root');
+    // r.style.setProperty('--weight', 100);
+    if (fieldonoff.checked) {
+        poster()
+            // console.log(1)
+    } else {
+        // console.log(2)
+        r.style.setProperty('--weight', 200);
+        r.style.setProperty('--slant', 0);
+    }
+
+    // if (modecheck.checked) {
+    // poster()
+    // }
+    window.requestAnimationFrame(tickposter)
+}
+
+tickposter()
+
+function poster() {
+
+
+
+    // p1str = document.getElementById("P1").value;
+
+
+    // / PPPPPP1111111 left
+    for (let i = 0; i < p1spanarray.length; i++) {
         let posx = getOffset(p1.childNodes[i]).left;
         let posy = getOffset(p1.childNodes[i]).top;
-
         let xdist = posx - x;
         // let ydist = y - posy;
         let ydist = posy - y;
 
-        let testleft = xdist / 160 * 45 * ydist / 160;
-        let testw = (1 - Math.abs(xdist / window.innerWidth) * 9 + 1 - Math.abs(ydist / window.innerHeight) * 9) * 900;
+        let testleft = xdist / 160 * 45 * ydist / 160 / 6;
+        let mousedist = getDistance(x, y, posx, posy);
+        mousedist = clamp(mousedist, s, Area)
 
+        let testw = map(mousedist, s, Area, 900, 100);
         let directoffsite = noise.get(posx * 0.001, posy * 0.04, postersime) * 190 - 75;
         let dist = getDistance(posx, posy, x, y);
         dist = clamp(dist, 0, Area);
@@ -112,75 +133,109 @@ function poster() {
         offsetnoise = map(dist, 0, maxarea, 0, 4);
         let strength = document.getElementById("myStrengthRange").value;
 
-        if (noisemovement.checked) {
-            p1.childNodes[i].style.setProperty("--slant", testleft * strength + directoffsite * offsetnoise);
-            p1.childNodes[i].style.setProperty("--weight", testw);
-        } else {
-            p1.childNodes[i].style.setProperty("--slant", testleft * strength);
-            p1.childNodes[i].style.setProperty("--weight", testw);
-        }
+
+        p1.childNodes[i].style.setProperty("--slant", testleft);
+        p1.childNodes[i].style.setProperty("--weight", testw);
     }
 
     // PPPPPP222222222 right
     for (let i = 0; i < p1spanarray.length; i++) {
-        // p1.childNodes[i].innerHTML = splitstr[i]
-
         let posx = getOffset(p2.childNodes[i]).left;
         let posy = getOffset(p2.childNodes[i]).top;
-
         let xdist = posx - x;
+        // let ydist = y - posy;
         let ydist = posy - y;
-        let mousedist = getDistance(x, y, posx, posy)
+        let mousedist = getDistance(x, y, posx, posy);
+        mousedist = clamp(mousedist, s, Area)
 
-        let testleft = xdist / 160 * 45 * ydist / 160;
-        // let testw = (1 - Math.abs(xdist / window.innerWidth) * 9 + 1 - Math.abs(ydist / window.innerHeight) * 9) * 900;
-        let testw = map(mousedist, 0, 100, 900, 100);
-
+        let testw = map(mousedist, s, Area, 900, 100);
+        let testleft = xdist / 160 * 45 * ydist / 160 / 6;
         let directoffsite = noise.get(posx * 0.001, posy * 0.04, postersime) * 190 - 75;
         let dist = getDistance(posx, posy, x, y);
+        dist = clamp(dist, 0, Area);
         let offsetnoise = 0;
         offsetnoise = clamp(offsetnoise, 0, 1);
         offsetnoise = map(dist, 0, maxarea, 0, 4);
         let strength = document.getElementById("myStrengthRange").value;
 
-        if (noisemovement.checked) {
-            p2.childNodes[i].style.setProperty("--slant", testleft * strength + directoffsite * offsetnoise);
-            p2.childNodes[i].style.setProperty("--weight", testw);
-        } else {
-            p2.childNodes[i].style.setProperty("--slant", testleft * strength);
-            p2.childNodes[i].style.setProperty("--weight", testw);
-        }
+
+        p2.childNodes[i].style.setProperty("--slant", testleft);
+        p2.childNodes[i].style.setProperty("--weight", testw);
     }
 
     // PPPPPP33333333 top
+    // let posx0 = getOffset(p3.childNodes[0]).left;
+    // let posy0 = getOffset(p3.childNodes[0]).top;
+    // posy0 = posy0 + 150;
+    // let xdist = posx0 - x;
+    // // let ydist = y - posy;
+    // let ydist = posy0 - y;
+    // let testleft = -xdist / 360 * 25 * ydist / 360;
+    // console.log(testleft)
     for (let i = 0; i < p3spanarray.length; i++) {
-        // p1.childNodes[i].innerHTML = splitstr[i]
 
         let posx = getOffset(p3.childNodes[i]).left;
         let posy = getOffset(p3.childNodes[i]).top;
-
+        // posx
+        posy = posy + 150;
         let xdist = posx - x;
         // let ydist = y - posy;
-        let ydist = y - posy;
+        let ydist = posy - y;
+        let mousedist = getDistance(x, y, posx, posy);
+        mousedist = clamp(mousedist, s, Area)
 
-        let testleft = xdist / 160 * 45 * ydist / 160;
-        let testw = (1 - Math.abs(xdist / window.innerWidth) * 9 + 1 - Math.abs(ydist / window.innerHeight) * 9) * 900;
-
+        let testw = map(mousedist, s, Area, 900, 100);
+        let testleft = -xdist / 360 * 25 * ydist / 360 / 2;
         let directoffsite = noise.get(posx * 0.001, posy * 0.04, postersime) * 190 - 75;
         let dist = getDistance(posx, posy, x, y);
+        dist = clamp(dist, 0, Area);
         let offsetnoise = 0;
         offsetnoise = clamp(offsetnoise, 0, 1);
         offsetnoise = map(dist, 0, maxarea, 0, 4);
         let strength = document.getElementById("myStrengthRange").value;
+        // testleft = testleft * 0.8;
 
-        if (noisemovement.checked) {
-            p3.childNodes[i].style.setProperty("--slant", testleft * strength + directoffsite * offsetnoise);
-            p3.childNodes[i].style.setProperty("--weight", testw);
-        } else {
-            p3.childNodes[i].style.setProperty("--slant", testleft * strength);
-            p3.childNodes[i].style.setProperty("--weight", testw);
-        }
+        p3.childNodes[i].style.setProperty("--slant", testleft);
+        p3.childNodes[i].style.setProperty("--weight", testw);
+
+
+
+        // let posx = getOffset(p3.childNodes[i]).left;
+        // let posy = getOffset(p3.childNodes[i]).top;
+        // posx = posx + 20;
+        // posy = posy + 30;
+        // let mousedist = getDistance(x, y, posx, posy);
+        // let mouseangle = angle(posx, posy, x, y);
+        // if (mouseangle >= 0) {
+        //     mouseangle = map(mouseangle, 45, 135, -45, 45);
+        // } else {
+        //     mouseangle = map(mouseangle, -45, -135, 45, -45);
+        // }
+        // mousedist = clamp(mousedist, s, Area)
+        // let testangle = map(mousedist, 0, Area, mouseangle, 0);
+        // let testw = map(mousedist, s, Area, 900, 100);
+
+
+        // p3.childNodes[i].style.setProperty("--slant", testangle);
+        // p3.childNodes[i].style.setProperty("--weight", testw);
     }
+
+
+    // let posx9 = getOffset(p4.childNodes[0]).left;
+    // let posy9 = getOffset(p4.childNodes[0]).top;
+    // let mousedist = getDistance(x, y, posx9, posy9);
+    // mousedist = clamp(mousedist, s, Area)
+    // let mousessangle = angle(posx9, posy9, x, y);
+    // if (mousessangle >= 0) {
+    //     mousessangle = map(mousessangle, 45, 135, -45, 45);
+    // } else {
+    //     mousessangle = map(mousessangle, -45, -135, 45, -45);
+    // }
+    // mousessangle = map(mousedist, 0, 20, 0, mousessangle)
+    // let testangl9e = map(mousedist, 0, Area, mousessangle * volume, 0);
+    // // console.log(mousessangle);
+
+    // p4.childNodes[0].style.setProperty("--slant", testangl9e);
 
 
     // PPPPP44444444 bottom
@@ -188,24 +243,53 @@ function poster() {
         let posx = getOffset(p4.childNodes[i]).left;
         let posy = getOffset(p4.childNodes[i]).top;
         let xdist = posx - x;
-        let ydist = y - posy;
+        // let ydist = y - posy;
+        let ydist = posy - y;
         let mousedist = getDistance(x, y, posx, posy);
-        let mouseangle = angle(posx, posy, x, y);
-        mouseangle = map(Math.abs(mouseangle), 0, 180, 45, -45)
-
-        let testangle = map(mousedist, s, Area, 0, mouseangle);
+        mousedist = clamp(mousedist, s, Area)
 
         let testw = map(mousedist, s, Area, 900, 100);
-
+        let testleft = -xdist / 360 * 25 * ydist / 360 / 1.2;
         let directoffsite = noise.get(posx * 0.001, posy * 0.04, postersime) * 190 - 75;
+        let dist = getDistance(posx, posy, x, y);
+        dist = clamp(dist, 0, Area);
         let offsetnoise = 0;
         offsetnoise = clamp(offsetnoise, 0, 1);
+        offsetnoise = map(dist, 0, maxarea, 0, 4);
+        let strength = document.getElementById("myStrengthRange").value;
+
+        p4.childNodes[i].style.setProperty("--slant", testleft);
+        p4.childNodes[i].style.setProperty("--weight", testw);
+
+
+
+
+        // let posx = getOffset(p4.childNodes[i]).left;
+        // let posy = getOffset(p4.childNodes[i]).top;
+        // posx = posx + 20;
+        // posy = posy + 140;
+        // let mousedist = getDistance(x, y, posx, posy);
+        // mousedist = clamp(mousedist, s, Area)
+        // let mouseangle = angle(posx, posy, x, y);
+        // if (mouseangle >= 0) {
+        //     mouseangle = map(mouseangle, 0, 179, -45, 45);
+        // } else {
+        //     mouseangle = map(mouseangle, -1, -179, 45, -45);
+        // }
+        // // mouseangle = map(mousedist, 0, 20, 0, mouseangle)
+        // let testangle = map(mousedist, s, Area, mouseangle * 1.5, 0);
+        // let testw = map(mousedist, s, Area, 900, 100);
+
+
+        // p4.childNodes[i].style.setProperty("--slant", testangle);
+        // p4.childNodes[i].style.setProperty("--weight", testw);
+
+        // let directoffsite = noise.get(posx * 0.001, posy * 0.04, postersime) * 190 - 75;
+        // let offsetnoise = 0;
+        // offsetnoise = clamp(offsetnoise, 0, 1);
         // offsetnoise = map(dist, 0, maxarea, 0, 4);
         // effectarea = map(dist, 0, Area, testw, );
         // effectarea = clamp(effectarea, 0, 1);
-
-        p4.childNodes[i].style.setProperty("--slant", testangle);
-        p4.childNodes[i].style.setProperty("--weight", testw);
         // if (noisemovement.checked) {
         //     p4.childNodes[i].style.setProperty("--slant", testleft * strength + directoffsite * offsetnoise);
         //     p4.childNodes[i].style.setProperty("--weight", testw);
@@ -217,8 +301,11 @@ function poster() {
 }
 
 document.addEventListener('mousemove', (e) => {
+
     x = e.clientX;
     y = e.clientY;
+
+
 });
 
 function getOffset(el) {

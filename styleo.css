@@ -1,24 +1,19 @@
-/* @font-face {
-    font-family: 'GTPLANAR';
-    src: url('GT-Planar-Regular-Trial.woff2') format("woff2");
-    /*   src: url('GT-Planar.otf'); */
-
-
-/* font-weight: 1 999; */
-
-
-/* } */
+:root {
+    --red: #ff6f69;
+    --weight: 400;
+    --slant: 0;
+    --cursorx: 0;
+    --cursory: 0;
+    --leftposition: 0px;
+    --topposition: 10px;
+    --bottompostion: 900px;
+    --rightposition: 1350px;
+    --leftrightfontsize: 57px;
+}
 
 @font-face {
     font-family: 'GTPlanar';
     src: url('GT-Planar-Trial-VF.ttf') format('truetype');
-    /* font-weight: 120; */
-}
-
-:root {
-    --red: #ff6f69;
-    --weight: 900;
-    --slant: 0;
 }
 
 html,
@@ -26,22 +21,101 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
+    font-family: 'GTPlanar';
+    color: #ffffff;
+    /* cursor: none; */
 }
 
-canvas {
-    display: block;
+#postercanvas {
+    position: absolute;
+    left: 330px;
+    top: 100px;
+    width: 627.5px;
+    height: 607.5px;
+    font-weight: 100;
+}
+
+.posterP {
+    position: absolute;
+    padding: 0px;
+    margin: auto;
+    font-size: 72px;
+    text-align: center;
+}
+
+#posterleft {
+    top: 78px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: var(--leftrightfontsize);
+    left: -0px;
+    /* text-align: center; */
+}
+
+#posterright {
+    left: 540px;
+    top: 78px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: var(--leftrightfontsize);
+    /* text-align: center; */
+}
+
+#postertop {
+    left: var(--leftposition);
+    /* position: relative; */
+    /* padding: 0px; */
+    /* margin: auto; */
+    top: -5px;
+}
+
+#posterbottom {
+    left: var(--leftposition);
+    /* position: relative; */
+    padding: 0px;
+    margin: auto;
+    top: 530px;
 }
 
 span {
-    color: #ffffff;
-    margin: 0;
-    /* position: absolute; */
-    vertical-align: middle;
-    text-align: center;
-    font-family: 'GTPlanar';
-    font-weight: 10;
-    font-weight: 10;
-    /* -webkit-font-smoothing: antialiased; */
-    font-size: 599;
     font-variation-settings: 'wght' var(--weight), 'slnt' var(--slant);
+}
+
+#cursor {
+    position: absolute;
+    left: var(--cursorx);
+    top: var(--cursory);
+    font-size: 69px;
+}
+
+#editpanel {
+    margin: auto;
+    top: 2%;
+    font-size: 19px;
+}
+
+#space {
+    height: 200px;
+}
+
+#tickmarks,
+myStrengthRange {
+    color: #ffffff;
+}
+
+img {
+    position: absolute;
+    left: 330px;
+    top: 100px;
+}
+
+#space {
+    position: absolute;
+    left: 330px;
+    top: 100px;
+    width: 607.5px;
+    height: 607.5px;
+    border-style: solid;
+    border-color: white;
+    border-width: 0.2px;
 }

@@ -12,6 +12,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="styleo.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://unpkg.com/perlin-noise-3d"></script>
     <script src="html2canvas.js"></script>
@@ -33,9 +34,9 @@
 
         <label>WIP   TURN THE FIELD ON/OFF</label>
         <input id="swithcer" type="checkbox">
-        <br><br>
+        <!-- <br><br>
         <label>WIP   Mode Poster/Headline</label>
-        <input id="mode" type="checkbox">
+        <input id="mode" type="checkbox"> -->
         <br><br>
         <label>background image ON/OFF</label>
         <input id="bmgcheck" type="checkbox">
@@ -43,14 +44,17 @@
         <label>Type</label><br>
         <textarea id="textarea" style="width: 127px; height: 128px;" placeholder="MAGNETIC FIELD">MAGNETIC FIELD</textarea> -->
         <br><br>
-        <label>WIP   Area</label><br>
-        <input id="myAreaRange" type="range" min="60" max="500" value="250" class="slider" step="1">
+        <label>Area</label><br>
+        <input id="myAreaRange" type="range" min="60" max="500" value="280" class="slider" step="1">
         <br><br>
-        <label>Strength</label><br>
+        <label>Smooth</label><br>
         <input id="myStrengthRange" type="range" min="0" max="999" value="499" class="slider" step="1" list="tickmarks">
-        <datalist id="tickmarks">
+        <br><br>
+        <label>Volume</label><br>
+        <input id="myVolumeRange" type="range" min="0" max="1" value="1" class="slider" step="0.01">
+        <!-- <datalist id="tickmarks">
             <option value="1"></option>
-        </datalist>
+        </datalist> -->
         <br><br>
         <label>Animation</label>
         <input id="noisemove" type="checkbox">
@@ -59,9 +63,10 @@
 
         <br><br>
         <label>WIP   Save Image</label><br>
-        <input type="button" value="click here or press s">
+        <!-- <input type="button" value="click here or press s"> -->
 
-        <img src="mockup.png" alt="magneticField" width="1080" id="bgimg">
+        <img src="165.png" alt="magneticField" height="607.5" id="bgimg">
+        <!-- <img src="blue.png" alt="magneticField" height="607.5" id="bgimg"> -->
 
     </div>
     <div id="space"></div>

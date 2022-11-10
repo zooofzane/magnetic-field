@@ -4,11 +4,11 @@
     --slant: 0;
     --cursorx: 0;
     --cursory: 0;
-    --leftposition: 15px;
+    --leftposition: 25px;
     --topposition: 10px;
     --bottompostion: 900px;
     --rightposition: 1350px;
-    --leftrightfontsize: 53px;
+    --leftrightfontsize: 48px;
 }
 
 @font-face {
@@ -32,6 +32,7 @@ body {
     top: 100px;
     width: 1100px;
     height: 607.5px;
+    font-weight: 100;
 }
 
 .posterP {
@@ -42,18 +43,21 @@ body {
 }
 
 #posterleft {
-    top: 90px;
+    top: 110px;
+    left: 20px;
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-size: var(--leftrightfontsize);
+    text-align: center;
 }
 
 #posterright {
-    left: 1020px;
-    top: 90px;
+    left: 1000px;
+    top: 110px;
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-size: var(--leftrightfontsize);
+    text-align: center;
 }
 
 #postertop {
